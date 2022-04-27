@@ -35,3 +35,24 @@ ALTER TABLE produtos
     ADD CONSTRAINT fk_produtos_fabricantes;
     FOREIGN KEY(fabricante_id) REFERENCES fabricantes(id);
 ```
+
+###  Filmes
+```sql
+CREATE TABLE generos (
+	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    genero VARCHAR(45) NOT NULL
+);
+```
+```sql
+CREATE TABLE filmes (
+	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    titulo VARCHAR(45) NOT NULL,
+    ano YEAR(4) NOT NULL,
+    genero_id INT NOT NULL    
+);
+```
+```sql
+ALTER TABLE filmes
+    ADD CONSTRAINT fk_filmes_generos;
+    FOREIGN KEY(genero_id) REFERENCES generos(id);
+```
