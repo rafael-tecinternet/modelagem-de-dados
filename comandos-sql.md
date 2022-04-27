@@ -6,8 +6,11 @@
 ```sql
 CREATE DATABASE vendas CHARACTER SET utf8mb4;
 ```
+### Acessar/entrar no banco
+```sql
+use database vendas;
+```
 ### Criar a tabela fabricantes
-
 ```sql
 CREATE TABLE fabricantes (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -55,4 +58,8 @@ CREATE TABLE filmes (
 ALTER TABLE filmes
     ADD CONSTRAINT fk_filmes_generos;
     FOREIGN KEY(genero_id) REFERENCES generos(id);
+```
+### Adicionar campo/coluna em uma tabela add/remove
+```sql
+ALTER TABLE PRODUTOS ADD fabricantes_id INT NOT NULL AFTER preco;
 ```
