@@ -24,3 +24,27 @@ INSERT INTO produtos(nome, descricao, preco, quantidade, fabricante_id) VALUES (
 INSERT INTO produtos(nome, descricao, preco, quantidade, fabricante_id) VALUES ('Geladeira', 'Refrigerador Frost-free com acesso à internet das Coisas e bla bla bla', 1500, 10, 6),('Iphone 13 Pro Max', 'Alta Durabilidade, processador Bionic 14, 128GB, 6GB de RAM', 6999.99, 3, 3),('Ipad Mini', 'Tablet com tela retina display de 4k, memória interna de 64GB, acesso gratuito à icloud', 5000, 8, 3);
 INSERT INTO produtos(nome, descricao, preco, quantidade, fabricante_id) VALUES ('Xbox', 'Console de última geração com acesso aos melhores jogos', 2500, 6, 8),('Ultrabook', 'Equipamento com processador AMD Ryzen5, 12GB RAM, placa de vídeo RTX', 4500.68, 12, 7);
 ```
+## SELECT
+### Ler dados da tabela produtos
+```sql
+SELECT * FROM produtos;
+
+SELECT nome, preco FROM produtos;
+
+SELECT preco, nome FROM produtos WHERE preco < 5000;
+
+SELECT nome, decricao FROM produtos WHERE fabricante_id = 3;
+```
+### Operador Lógicos: E OU NÃO
+```sql
+SELECT * FROM produtos WHERE preco >= 5000 AND preco < 8000;
+
+SELECT nome, preco FROM produtos WHERE fabricante_id = 3 OR fabricante_id = 8;
+WHERE fabricante_id IN(3, 8);
+
+SELECT nome, preco, quantidade FROM produtos WHERE NOT fabricante_id = 3; 
+# versão 1 usando NOT
+
+SELECT nome, preco, quantidade FROM produtos WHERE fabricante_id != 3;
+# versão 2 usando operdor != 
+```
