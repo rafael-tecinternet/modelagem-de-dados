@@ -112,6 +112,7 @@ SELECT produtos.nome, fabricantes.nome FROM
   ON produtos.fabricante_id = fabricantes.id;
 ```
 ```sql
+--
 SELECT 
     produtos.nome AS Produto,
     fabricantes.nome AS Fabricante
@@ -129,3 +130,21 @@ FROM produtos INNER JOIN fabricantes
 ON produtos.fabricante_id = fabricantes.id
 GROUP BY Fabricante
 ORDER BY Total;
+
+-- Trazer a quantidade de produtos de cada fabricante
+SELECT
+    fabricantes.nome AS Fabricante,
+    COUNT(produtos.id) AS "Qtd de produtos"  
+FROM produtos INNER JOIN fabricantes
+ON produtos.fabricante_id = fabricantes.id
+GROUP BY Fabricante;
+
+SELECT
+    fabricantes.nome AS Fabricante,
+    COUNT(produtos.id) AS "Qtd de produtos"  
+FROM produtos RIGHT JOIN fabricantes
+ON produtos.fabricante_id = fabricantes.id
+GROUP BY Fabricante;
+-- RIGHT/LEFT JOIN traz os regristros mesmo daqueles fabricantes que não tem produtos
+
+```
